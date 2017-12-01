@@ -43,12 +43,20 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         // 图片加载器，较小的图片转成 base64
         loader: 'url',
         query: {
-          limit: 10000,
+          limit: 100000,
           name: './imgs/[name].[ext]?[hash:7]'
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url',
+        query: {
+          limit: 100000,
+          name: './fonts/[name].[ext]?[hash:7]'
         }
       }
     ]

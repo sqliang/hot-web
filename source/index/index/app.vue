@@ -11,6 +11,7 @@ body {
 
 <template>
   <div id="app">
+    <Button>你好</Button>
     <img src="./static/logo.png" alt="" class="logo">
     <h1>{{msg}}</h1>
     <comp-a></comp-a>
