@@ -1,50 +1,3 @@
-<style>
-  .layout{
-      background: #f5f7f9;
-  }
-  .layout-logo{
-      width: 100px;
-      height: 60px;
-      border-radius: 3px;
-      float: left;
-      position: relative;
-      left: 10px;
-      top: 10px;
-  }
-  .layout-logo img {
-    width: 100px;
-    height: 30px;
-  }
-  .layout-nav{
-      width: 470px;
-      height: 60px;
-      margin: 0 auto;
-  }
-  /* .layout-assistant{
-      width: 300px;
-      margin: 0 auto;
-      height: inherit;
-  } */
-  .layout-breadcrumb{
-      padding: 10px 15px 0;
-  }
-  .layout-content{
-      width: 100%;
-      min-height: 200px;
-      margin: 15px;
-      overflow: hidden;
-      background: #fff;
-      border-radius: 4px;
-  }
-  .layout-content-main{
-      padding: 10px;
-  }
-  .layout-copy{
-      text-align: center;
-      padding: 10px 0 20px;
-      color: #9ea7b4;
-  }
-</style>
 <template>
   <div class="layout">
     <!-- 头部 -->
@@ -82,8 +35,8 @@
             <menu-item name="3">Option 3</menu-item>
         </div>
     </i-menu> -->
-    <div class="layout-content">
-        <Row>
+    <Row class="layout-content">
+            <!-- 垂直菜单 -->
             <Col span="5">
                 <i-menu active-name="1-2" width="auto" :open-names="['1']">
                     <Submenu name="1">
@@ -113,18 +66,113 @@
                     </Submenu>
                 </i-menu>
             </Col>
+            <!-- 主要内容 -->
             <Col span="19">
-                <div class="layout-content-main">Content</div>
+                <div class="layout-content-main">
+                    <Row :gutter="10">
+                        <Col span="16">
+                            <!-- 走马灯 -->
+                            <Carousel class="carousel" autoplay loop>
+                                <carousel-item v-for="imgSrc in imgSrcArr">
+                                    <div class="carousel-item">
+                                        <img :src="imgSrc">
+                                    </div>
+                                </carousel-item>
+                            </Carousel>
+                            <div class="block">
+                                nihao
+                            </div>
+                        </Col>
+                        <Col span="8">
+                            <div class="right-block">
+                                nihao
+                            </div>
+                            <div class="right-block">
+                                    nihao1
+                                </div> 
+                        </Col>
+                    </Row>
+                </div>
             </Col>
         </Row>
-    </div>
-    <div class="layout-copy">
-        2011-2016 &copy; TalkingData
-    </div>
+    </Row>
   </div>
 </template>
 <script>
-  export default {
-      
-  }
+import imgSrc from './timg.jpeg';
+
+export default {
+    data() {
+        return {
+            imgSrcArr: [imgSrc, imgSrc, imgSrc]
+        };
+    }
+}
 </script>
+
+<style>
+.carousel img {
+    width: 100%;
+    height: 300px;
+}
+.block {
+    background: #fff;
+    height: 400px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 8px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+.right-block {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 10px;
+    padding: 8px;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+.layout{
+    background: #eaedf1;
+}
+.layout-logo{
+    width: 100px;
+    height: 60px;
+    border-radius: 3px;
+    float: left;
+    position: relative;
+    left: 10px;
+    top: 10px;
+}
+.layout-logo img {
+    width: 100px;
+    height: 30px;
+}
+.layout-nav{
+    width: 470px;
+    height: 60px;
+    margin: 0 auto;
+}
+/* .layout-assistant{
+    width: 300px;
+    margin: 0 auto;
+    height: inherit;
+} */
+.layout-breadcrumb{
+    padding: 10px 15px 0;
+}
+.layout-content{
+    width: 100%;
+    min-height: 200px;
+    margin: 15px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+.layout-content-main{
+    padding: 10px;
+}
+.layout-copy{
+    text-align: center;
+    padding: 10px 0 20px;
+    color: #9ea7b4;
+}
+</style>

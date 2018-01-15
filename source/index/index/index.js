@@ -16,17 +16,3 @@ new Vue({
 	  template: '<App/>',
 	components: { App }
 });
-
-
-// Raven.config('https://7730bdb525604d558c99fd46d5c16e2b@sentry.io/254033')
-// 	.addPlugin(RavenVue, Vue)
-// 	.install();
-
-// Raven.context(function() {
-// 	Vue.use(iView);
-// 	new Vue({
-// 		el: '#app',
-// 	  	template: '<App/>',
-// 		components: { App }
-// 	});
-// });
